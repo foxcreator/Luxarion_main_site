@@ -111,6 +111,24 @@ if (aboutSection) {
     });
 }
 
+// 4. Vision Section Reveal Animation
+const visionSection = document.querySelector('#vision');
+if (visionSection) {
+    gsap.from('#vision .section-tag, #vision .vision-quote, #vision .vision-text', {
+        scrollTrigger: {
+            trigger: '#vision',
+            start: 'top 80%',
+            once: true
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.2, // Sequential pop-in for quote then text
+        ease: 'power3.out',
+        clearProps: 'transform,opacity'
+    });
+}
+
 // --- SCROLL ANIMATIONS REMOVED BY USER REQUEST ---
 // Animations for Projects, Vision, Technology, Team, Contact and Media have been disabled.
 
