@@ -1,12 +1,13 @@
 :root {
-    --color-bg: #050507;
-    --color-text: #ffffff;
-    --color-accent: #00f2ff;
-    --color-secondary: #ff007a;
+    --color-bg: #0B0B0B;
+    --color-text: #FFFFFF;
+    --color-accent: #00E5FF;
+    --color-secondary: #8A5CFF;
+    --color-steel: #1A1A1A;
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-display: 'Outfit', var(--font-main);
+    --font-display: 'Space Grotesk', var(--font-main);
     --section-padding: 12rem 5%;
-    --gradient-1: linear-gradient(45deg, #00f2ff 0%, #ff007a 100%);
+    --gradient-1: linear-gradient(135deg, #00E5FF 0%, #8A5CFF 100%);
 }
 
 * {
@@ -94,7 +95,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.1) 0%, transparent 70%), url('../hero.png');
+    background-image: radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.1) 0%, transparent 70%), url('../hero.png');
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -336,8 +337,8 @@ h4 {
 }
 
 .tech-item.active {
-    border: 1px solid #00f2ff !important;
-    background: rgba(0, 242, 255, 0.1) !important;
+    border: 1px solid #00E5FF !important;
+    background: rgba(0, 229, 255, 0.1) !important;
     opacity: 1 !important;
 }
 
@@ -346,7 +347,7 @@ h4 {
 }
 
 .tech-item.active .tech-arrow {
-    color: #00f2ff !important;
+    color: #00E5FF !important;
 }
 
 .tech-item:hover:not(.active) {
