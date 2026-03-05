@@ -94,25 +94,20 @@ if (aboutSection) {
     });
 
     // Pillars (Numbered boxes) fly in from sides
-    // 01 and 03 fly from left (x: -50)
-    // 02 and 04 fly from right (x: 50)
     const pillars = document.querySelectorAll('#about .pillar');
-    pillars.forEach((pillar, index) => {
-        const direction = (index % 2 === 0) ? -60 : 60; // Left for even index (0, 2), Right for odd (1, 3)
-        gsap.from(pillar, {
-            scrollTrigger: {
-                trigger: '#about .bento-pillars',
-                start: 'top 80%',
-                once: true
-            },
-            x: direction,
-            y: 30, // Slightly up as well
-            opacity: 0,
-            duration: 1.2,
-            stagger: 0.2, // Will add slight delay based on loop execution, but we use index mapping
-            delay: index * 0.15, // Sequential pop-in
-            ease: 'back.out(1.2)'
-        });
+    gsap.from(pillars, {
+        scrollTrigger: {
+            trigger: '#about .bento-pillars',
+            start: 'top 75%',
+            once: true
+        },
+        x: (index) => (index % 2 === 0) ? -60 : 60, // 0 and 2 from left, 1 and 3 from right
+        y: 30,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: 'back.out(1.2)',
+        clearProps: 'all' // Crucial: clear inline styles after animation so native hovered styling works
     });
 }
 
