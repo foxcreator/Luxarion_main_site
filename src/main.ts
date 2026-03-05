@@ -129,6 +129,63 @@ if (visionSection) {
     });
 }
 
+// 5. FLAGSHIP PROJECT Section Animation
+const projectSection = document.querySelector('#projects');
+if (projectSection) {
+    // Animate the main section tag
+    gsap.from('#projects .section-tag', {
+        scrollTrigger: {
+            trigger: '#projects',
+            start: 'top 80%',
+            once: true
+        },
+        y: 30,
+        opacity: 0,
+        duration: 1.0,
+        ease: 'power3.out'
+    });
+
+    // Premium Reveal for the Project Image (Clip-path + Scale)
+    gsap.fromTo('#projects .project-visual',
+        { clipPath: 'inset(100% 0% 0% 0%)', scale: 1.1 },
+        {
+            scrollTrigger: {
+                trigger: '#projects .project-showcase',
+                start: 'top 75%',
+                once: true
+            },
+            clipPath: 'inset(0% 0% 0% 0%)',
+            scale: 1,
+            duration: 1.5,
+            ease: 'expo.out',
+            clearProps: 'clipPath,transform' // preserve any native layout
+        }
+    );
+
+    // Staggered reveal for right-side content
+    const projectContentElements = [
+        '#projects .project-meta',
+        '#projects .project-title',
+        '#projects .project-desc',
+        '#projects .project-features',
+        '#projects .core-pillars .tag'
+    ];
+
+    gsap.from(projectContentElements.join(', '), {
+        scrollTrigger: {
+            trigger: '#projects .project-content',
+            start: 'top 80%',
+            once: true
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.1, // Quick sequence
+        ease: 'power3.out',
+        clearProps: 'transform,opacity'
+    });
+}
+
 // --- SCROLL ANIMATIONS REMOVED BY USER REQUEST ---
 // Animations for Projects, Vision, Technology, Team, Contact and Media have been disabled.
 
