@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxarion Games | Beyond Imagination</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Outfit:wght@500;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <div class="noise"></div>
+
+    <nav class="glass"
+      style="position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; height: 4.5rem; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem 0 0.5rem;">
+      <a href="#" class="logo" style="display: flex; align-items: center;">
+        <img src="/logo.png" alt="Luxarion Games" style="height: 3rem; width: auto; cursor: pointer;"></a>
+      <div class="nav-links"
+        style="display: flex; gap: 2.5rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#technology">Technology</a>
+        <a href="#team">Team</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <!-- 1. Hero Section -->
+      <section id="hero" class="hero">
+        <div class="hero-bg"
+          style="background-image: url('/hero_v7.png'); background-position: center; background-size: cover; background-attachment: fixed;">
+        </div>
+        <div class="container" style="text-align: left; padding-top: 15vh; position: relative; z-index: 2;">
+          <div class="reveal-container">
+            <h1 class="hero-title"
+              style="font-size: clamp(3rem, 10vw, 8rem); line-height: 1; margin: 0; font-weight: 800; letter-spacing: -2px;">
+              Luxarion<br>Games
+            </h1>
+          </div>
+          <p class="hero-sub subtitle"
+            style="font-size: 1.5rem; color: #d0d0d0; margin-top: 2rem; max-width: 600px; font-weight: 400;">
+            Building the next generation of immersive, multi-genre games.
+          </p>
+          <p class="hero-desc"
+            style="margin-top: 1rem; font-size: 1.1rem; opacity: 0.6; max-width: 500px; line-height: 1.6;">
+            Luxarion is an independent game development studio focused on creating
+            premium narrative-driven experiences for a global audience.
+          </p>
+          <div class="hero-actions" style="margin-top: 3rem; display: flex; gap: 1.5rem;">
+            <a href="#projects" class="btn btn-primary"
+              style="padding: 1rem 2.5rem; background: var(--color-text); color: var(--color-bg); text-decoration: none; font-weight: 700; border-radius: 4px; transition: opacity 0.3s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">View
+              Project</a>
+            <a href="#investors" class="btn btn-secondary"
+              style="padding: 1rem 2.5rem; border: 1px solid rgba(255,255,255,0.2); color: var(--color-text); text-decoration: none; font-weight: 700; border-radius: 4px; transition: background 0.3s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Investor
+              Deck</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. About the Studio -->
+      <section id="about" style="background: var(--color-bg); padding: 10rem 0; position: relative; z-index: 5;">
+        <div class="container container-large" style="max-width: 1400px; padding: 0 5%; margin: 0 auto;">
+          <h2 class="section-tag"
+            style="color: #a0a0a0; font-size: 0.9rem; margin-bottom: 2rem; letter-spacing: 3px; text-align: left;">
+            // ABOUT LUXARION</h2>
+          <div class="about-grid">
+            <!-- Left: Text content -->
+            <div class="about-text-content">
+              <h3 class="about-heading"
+                style="font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1.2; font-weight: 300; margin-bottom: 2rem; font-family: var(--font-display); text-transform: uppercase;">
+                Crafting <span
+                  style="background: var(--gradient-1); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600;">unforgettable</span>
+                interactive worlds
+              </h3>
+              <p class="about-desc"
+                style="font-size: 1.2rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 1.5rem;">
+                Luxarion is an independent game development studio focused on creating premium games with
+                cinematic quality and strong emotional resonance.
+              </p>
+              <p class="about-desc" style="font-size: 1.2rem; color: rgba(255,255,255,0.6); line-height: 1.6;">
+                We unite industry veterans and passionate creators under one vision: to build original IPs that
+                captivate players and leave a lasting legacy.
+              </p>
+            </div>
+
+            <!-- Right: Bento Grid -->
+            <div class="bento-pillars">
+
+              <!-- Pillar 1 -->
+              <div class="pillar"
+                style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 3.5rem 2.5rem; border-radius: 16px; transition: all 0.4s ease; position: relative; overflow: hidden;"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(0, 242, 255, 0.3)'; this.style.transform='translateY(-5px)';"
+                onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.transform='translateY(0)';">
+                <span
+                  style="font-family: var(--font-display); font-size: 5rem; font-weight: 800; color: rgba(255,255,255,0.03); position: absolute; top: 10px; right: 20px; line-height: 1; pointer-events: none;">01</span>
+                <div
+                  style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(0,242,255,0.0)); display: flex; align-items: center; justify-content: center; margin-bottom: 2.5rem; color: #00f2ff; border: 1px solid rgba(0,242,255,0.2);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+                <h4
+                  style="font-size: 1.4rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                  Immersive Worlds</h4>
+                <p
+                  style="font-size: 1.05rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin: 0; text-transform: none; font-family: var(--font-main);">
+                  Deep, interactive universes across multiple genres where every action holds weight and meaning.</p>
+              </div>
+
+              <!-- Pillar 2 -->
+              <div class="pillar"
+                style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 3.5rem 2.5rem; border-radius: 16px; transition: all 0.4s ease; position: relative; overflow: hidden;"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255, 0, 122, 0.3)'; this.style.transform='translateY(-5px)';"
+                onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.transform='translateY(0)';">
+                <span
+                  style="font-family: var(--font-display); font-size: 5rem; font-weight: 800; color: rgba(255,255,255,0.03); position: absolute; top: 10px; right: 20px; line-height: 1; pointer-events: none;">02</span>
+                <div
+                  style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, rgba(255,0,122,0.1), rgba(255,0,122,0.0)); display: flex; align-items: center; justify-content: center; margin-bottom: 2.5rem; color: #ff007a; border: 1px solid rgba(255,0,122,0.2);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                  </svg>
+                </div>
+                <h4
+                  style="font-size: 1.4rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                  AAA Quality</h4>
+                <p
+                  style="font-size: 1.05rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin: 0; text-transform: none; font-family: var(--font-main);">
+                  Premium visual fidelity powered by Unreal Engine 5 and custom cutting-edge tech.</p>
+              </div>
+
+              <!-- Pillar 3 -->
+              <div class="pillar"
+                style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 3.5rem 2.5rem; border-radius: 16px; transition: all 0.4s ease; position: relative; overflow: hidden;"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(0, 242, 255, 0.3)'; this.style.transform='translateY(-5px)';"
+                onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.transform='translateY(0)';">
+                <span
+                  style="font-family: var(--font-display); font-size: 5rem; font-weight: 800; color: rgba(255,255,255,0.03); position: absolute; top: 10px; right: 20px; line-height: 1; pointer-events: none;">03</span>
+                <div
+                  style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(0,242,255,0.0)); display: flex; align-items: center; justify-content: center; margin-bottom: 2.5rem; color: #00f2ff; border: 1px solid rgba(0,242,255,0.2);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                    </path>
+                  </svg>
+                </div>
+                <h4
+                  style="font-size: 1.4rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                  Original IPs</h4>
+                <p
+                  style="font-size: 1.05rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin: 0; text-transform: none; font-family: var(--font-main);">
+                  Building expansive universes explicitly designed for long-term franchise growth.</p>
+              </div>
+
+              <!-- Pillar 4 -->
+              <div class="pillar"
+                style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 3.5rem 2.5rem; border-radius: 16px; transition: all 0.4s ease; position: relative; overflow: hidden;"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255, 0, 122, 0.3)'; this.style.transform='translateY(-5px)';"
+                onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.transform='translateY(0)';">
+                <span
+                  style="font-family: var(--font-display); font-size: 5rem; font-weight: 800; color: rgba(255,255,255,0.03); position: absolute; top: 10px; right: 20px; line-height: 1; pointer-events: none;">04</span>
+                <div
+                  style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, rgba(255,0,122,0.1), rgba(255,0,122,0.0)); display: flex; align-items: center; justify-content: center; margin-bottom: 2.5rem; color: #ff007a; border: 1px solid rgba(255,0,122,0.2);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h4
+                  style="font-size: 1.4rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                  Global Reach</h4>
+                <p
+                  style="font-size: 1.05rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin: 0; text-transform: none; font-family: var(--font-main);">
+                  Crafting universal experiences that culturally resonate with players worldwide.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Vision -->
+      <section id="vision" style="background: #08080a; padding: 10rem 0;">
+        <div class="container container-large" style="max-width: 1400px; padding: 0 5%; margin: 0 auto;">
+          <h2 class="section-tag"
+            style="color: #a0a0a0; font-size: 0.9rem; margin-bottom: 3rem; letter-spacing: 3px; display: block; text-align: left;">
+            // OUR VISION</h2>
+        </div>
+        <div class="container" style="max-width: 800px; text-align: center;">
+          <h3 class="quote-text"
+            style="font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.2; font-style: italic; font-weight: 300; margin-bottom: 3rem;">
+            "We believe games are the most powerful interactive medium to experience new worlds."
+          </h3>
+          <p class="body-text" style="font-size: 1.3rem; opacity: 0.6; line-height: 1.6; margin-bottom: 2rem;">
+            Our mission is to build worlds players can live in, stories they remember and characters that stay with them
+            long after the game ends.
+          </p>
+          <p class="body-text" style="font-size: 1.3rem; color: #fff; line-height: 1.6;">
+            Luxarion aims to create original IPs capable of growing into long-term franchises.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. Projects -->
+      <section id="projects" style="padding-bottom: 0;">
+        <div class="container container-large" style="max-width: 1600px; margin: 0 auto; padding: 0 5%;">
+          <h2 class="section-tag" style="color: #a0a0a0; font-size: 0.9rem; margin-bottom: 2rem; letter-spacing: 3px;">
+            // FLAGSHIP PROJECT</h2>
+
+          <div class="project-showcase"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;">
+            <div class="project-visual"
+              style="border-radius: 8px; overflow: hidden; position: relative; aspect-ratio: 16/9;">
+              <img src="/game_poster.png" alt="The Endless Caravan"
+                style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="project-content">
+              <div class="project-meta" style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                <span class="genre"
+                  style="padding: 0.3rem 0.8rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; font-size: 0.8rem; text-transform: uppercase;">Narrative
+                  survival</span>
+                <span class="platforms"
+                  style="padding: 0.3rem 0.8rem; background: rgba(255,255,255,0.1); border-radius: 4px; font-size: 0.8rem; text-transform: uppercase;">PC
+                  / Console</span>
+              </div>
+              <h3 class="project-title"
+                style="font-size: clamp(2.5rem, 4vw, 4rem); margin-bottom: 1.5rem; letter-spacing: -1px;">The Endless
+                Caravan</h3>
+              <p class="project-desc" style="font-size: 1.1rem; opacity: 0.6; margin-bottom: 1.5rem; line-height: 1.6;">
+                The Endless Caravan is a highly immersive survival road adventure set in a mysterious world slowly
+                disappearing into a strange fog of forgotten memories.
+              </p>
+              <p class="project-desc" style="font-size: 1.1rem; opacity: 0.6; margin-bottom: 2rem; line-height: 1.6;">
+                Players travel across a dying land inside a moving caravan, managing resources, protecting the crew and
+                uncovering fragments of a lost world.
+              </p>
+
+              <ul class="project-features"
+                style="list-style: none; padding: 0; margin-bottom: 3rem; border-left: 2px solid rgba(255,255,255,0.2); padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.5rem; font-style: italic;">Every decision shapes the journey.</li>
+                <li style="font-style: italic;">Every road leads to a different ending.</li>
+              </ul>
+
+              <div class="core-pillars" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                <span class="tag"
+                  style="font-size: 0.8rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px;">#deep_immersion</span>
+                <span class="tag"
+                  style="font-size: 0.8rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px;">#resource_management</span>
+                <span class="tag"
+                  style="font-size: 0.8rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px;">#exploration</span>
+                <span class="tag"
+                  style="font-size: 0.8rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px;">#branching_narrative</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Technology -->
+      <section id="technology"
+        style="background: var(--color-bg); padding: 8rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container container-large" style="max-width: 1400px; margin: 0 auto; padding: 0 5%;">
+          <h2 class="section-tag"
+            style="color: #a0a0a0; font-size: 0.9rem; margin-bottom: 3rem; letter-spacing: 3px; text-align: left;">//
+            TECHNOLOGY</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+              <p class="lead-text" style="font-size: 1.5rem; line-height: 1.5; margin-bottom: 2rem; opacity: 0.8;">
+                Luxarion combines modern game engines with custom production tools and AI-assisted workflows to
+                accelerate development while maintaining premium visual and gameplay quality.
+              </p>
+
+              <ul id="tech-list"
+                style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem;">
+                <li class="tech-item active" data-img="/tech_engine_abstract.png"
+                  style="border: 1px solid #00f2ff; background: rgba(0, 242, 255, 0.1); border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                  <div style="display: block; padding: 1.5rem; color: inherit;">
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                      <h4 style="color: #fff; font-size: 1.1rem; margin: 0;">Game Engine</h4>
+                      <span class="tech-arrow"
+                        style="color: #00f2ff; font-size: 1.2rem; transition: color 0.3s, transform 0.3s;">↗</span>
+                    </div>
+                    <p style="opacity: 0.5; font-size: 0.9rem; margin: 0;">Unreal Engine 5 Core</p>
+                  </div>
+                </li>
+                <li class="tech-item" data-img="/tech_pipeline_mocap.png"
+                  style="border: 1px solid transparent; background: transparent; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                  <div style="display: block; padding: 1.5rem; color: inherit;">
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                      <h4 style="color: #fff; font-size: 1.1rem; margin: 0;">Production Pipeline</h4>
+                      <span class="tech-arrow"
+                        style="color: rgba(255,255,255,0.3); font-size: 1.2rem; transition: color 0.3s, transform 0.3s;">↗</span>
+                    </div>
+                    <p style="opacity: 0.5; font-size: 0.9rem; margin: 0;">High-fidelity assets & motion capture</p>
+                  </div>
+                </li>
+                <li class="tech-item" data-img="/tech_ai_nodes.png"
+                  style="border: 1px solid transparent; background: transparent; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                  <div style="display: block; padding: 1.5rem; color: inherit;">
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                      <h4 style="color: #fff; font-size: 1.1rem; margin: 0;">AI Tools</h4>
+                      <span class="tech-arrow"
+                        style="color: rgba(255,255,255,0.3); font-size: 1.2rem; transition: color 0.3s, transform 0.3s;">↗</span>
+                    </div>
+                    <p style="opacity: 0.5; font-size: 0.9rem; margin: 0;">Procedural narrative generation</p>
+                  </div>
+                </li>
+                <li class="tech-item" data-img="/tech_custom_tools.png"
+                  style="border: 1px solid transparent; background: transparent; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">
+                  <div style="display: block; padding: 1.5rem; color: inherit;">
+                    <div
+                      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                      <h4 style="color: #fff; font-size: 1.1rem; margin: 0;">Custom Tools</h4>
+                      <span class="tech-arrow"
+                        style="color: rgba(255,255,255,0.3); font-size: 1.2rem; transition: color 0.3s, transform 0.3s;">↗</span>
+                    </div>
+                    <p style="opacity: 0.5; font-size: 0.9rem; margin: 0;">In-house scripting framework</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tech-visual project-visual"
+              style="border-radius: 8px; overflow: hidden; height: 500px; background: #111; position: relative;">
+              <img id="tech-display-img" src="/tech_engine_abstract.png" alt="Game Engine Technology"
+                class="project-img"
+                style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s ease;">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Team -->
+      <section id="team" style="background: #08080a; padding: 8rem 0;">
+        <div class="container container-large" style="max-width: 1400px; margin: 0 auto; padding: 0 5%;">
+          <h2 class="section-tag"
+            style="color: #a0a0a0; font-size: 0.9rem; margin-bottom: 4rem; letter-spacing: 3px; text-align: left;">
+            // CORE TEAM</h2>
+
+          <div class="team-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+              <div class="team-card sevastian"
+                style="aspect-ratio: 1/1; border-radius: 4px; margin-bottom: 1.5rem; filter: grayscale(100%); transition: filter 0.3s;">
+              </div>
+              <h4 style="font-size: 1.5rem; margin-bottom: 0.2rem;">Sevastian</h4>
+              <p
+                style="color: #a0a0a0; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">
+                Founder / Creative Director</p>
+              <p style="opacity: 0.6; font-size: 0.95rem; line-height: 1.5;">Game designer and entrepreneur focused on
+                building ambitious, multi-genre games with global appeal.</p>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="team-member">
+              <div class="team-card mihail"
+                style="aspect-ratio: 1/1; border-radius: 4px; margin-bottom: 1.5rem; filter: grayscale(100%); transition: filter 0.3s;">
+              </div>
+              <h4 style="font-size: 1.5rem; margin-bottom: 0.2rem;">Mihail</h4>
+              <p
+                style="color: #a0a0a0; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">
+                Game Designer</p>
+              <p style="opacity: 0.6; font-size: 0.95rem; line-height: 1.5;">Narrative architect ensuring every gameplay
+                mechanic serves the core immersive experience.</p>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-member">
+              <div class="team-card alex"
+                style="aspect-ratio: 1/1; border-radius: 4px; margin-bottom: 1.5rem; filter: grayscale(100%); transition: filter 0.3s;">
+              </div>
+              <h4 style="font-size: 1.5rem; margin-bottom: 0.2rem;">Alex</h4>
+              <p
+                style="color: #a0a0a0; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">
+                Tech Lead</p>
+              <p style="opacity: 0.6; font-size: 0.95rem; line-height: 1.5;">Engine veteran constructing the robust,
+                scalable systems that power our next-generation worlds.</p>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="team-member">
+              <div class="team-card elena"
+                style="aspect-ratio: 1/1; border-radius: 4px; margin-bottom: 1.5rem; filter: grayscale(100%); transition: filter 0.3s;">
+              </div>
+              <h4 style="font-size: 1.5rem; margin-bottom: 0.2rem;">Elena</h4>
+              <p
+                style="color: #a0a0a0; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">
+                Design Lead</p>
+              <p style="opacity: 0.6; font-size: 0.95rem; line-height: 1.5;">Visual maestro translating concept art into
+                breathtaking, atmospheric 3D realities.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Media / Press -->
+      <section id="media" style="background: var(--color-bg); padding: 8rem 0;">
+        <div class="container container-large"
+          style="max-width: 1400px; margin: 0 auto; padding: 0 5%; text-align: center;">
+          <h2 class="section-tag"
+            style="color: #a0a0a0; font-size: 0.9rem; margin-bottom: 4rem; letter-spacing: 3px; text-align: left;">
+            // MEDIA: THE ENDLESS CARAVAN</h2>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" id="media-gallery">
+
+            <div class="media-gallery-item"
+              style="aspect-ratio: 16/9; background: #111; border-radius: 4px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: zoom-in;">
+              <img src="/media/00-2.png" alt="Game Screenshot 1"
+                style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';" />
+            </div>
+
+            <div class="media-gallery-item"
+              style="aspect-ratio: 16/9; background: #111; border-radius: 4px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: zoom-in;">
+              <img src="/media/00-4.png" alt="Game Screenshot 2"
+                style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';" />
+            </div>
+
+            <div class="media-gallery-item"
+              style="aspect-ratio: 16/9; background: #111; border-radius: 4px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: zoom-in;">
+              <img src="/media/94.png" alt="Game Screenshot 3"
+                style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';" />
+            </div>
+
+            <div class="media-gallery-item"
+              style="aspect-ratio: 16/9; background: #111; border-radius: 4px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: zoom-in;">
+              <img src="/media/100.png" alt="Game Screenshot 4"
+                style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';" />
+            </div>
+
+            <div class="media-gallery-item"
+              style="aspect-ratio: 16/9; background: #111; border-radius: 4px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: zoom-in;">
+              <img src="/media/100-1.png" alt="Game Screenshot 5"
+                style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';" />
+            </div>
+
+            <div class="media-gallery-item"
+              style="aspect-ratio: 16/9; background: #111; border-radius: 4px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: zoom-in;">
+              <img src="/media/GARAGE08.png" alt="Garage Screenshot"
+                style="position: absolute; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';" />
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox-modal"
+          style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95); z-index: 9999; align-items: center; justify-content: center; cursor: zoom-out; backdrop-filter: blur(5px);">
+          <img id="lightbox-img" src="" alt="Fullscreen Media"
+            style="max-width: 90%; max-height: 90%; object-fit: contain; box-shadow: 0 10px 50px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px;">
+          <div
+            style="position: absolute; top: 20px; right: 40px; color: #fff; font-size: 2.5rem; cursor: pointer; transition: color 0.2s;"
+            onmouseover="this.style.color='#f00'" onmouseout="this.style.color='#fff'">&times;</div>
+        </div>
+      </section>
+
+      <!-- 10. Contact -->
+      <footer id="contact"
+        style="background: #050505; padding: 6rem 0 3rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 5%;">
+          <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; margin-bottom: 4rem;">
+            <div>
+              <div class="logo"
+                style="font-family: 'Outfit'; font-weight: 800; font-size: 2.5rem; letter-spacing: 5px; margin-bottom: 1rem; color: #fff;">
+                LUXARION
+              </div>
+              <p style="opacity: 0.4; font-size: 0.9rem; max-width: 300px; line-height: 1.6;">
+                Building the next generation of premium interactive games for a global audience.
+              </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+              <div>
+                <h5
+                  style="color: #666; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;">
+                  Business</h5>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="margin-bottom: 0.8rem;"><a href="/business.html"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Business
+                      Inquiries</a></li>
+                  <li style="margin-bottom: 0.8rem;"><a href="/investors.html"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Investors</a>
+                  </li>
+                  <li style="margin-bottom: 0.8rem;"><a href="/partnerships.html"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Partnerships</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h5
+                  style="color: #666; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;">
+                  Connect</h5>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="margin-bottom: 0.8rem;"><a href="mailto:hello@luxarion.com"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Email</a>
+                  </li>
+                  <li style="margin-bottom: 0.8rem;"><a href="https://x.com" target="_blank"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">X
+                      (Twitter)</a></li>
+                  <li style="margin-bottom: 0.8rem;"><a href="https://linkedin.com" target="_blank"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">LinkedIn</a>
+                  </li>
+                  <li style="margin-bottom: 0.8rem;"><a href="https://youtube.com" target="_blank"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">YouTube</a>
+                  </li>
+                  <li style="margin-bottom: 0.8rem;"><a href="https://instagram.com" target="_blank"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Instagram</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h5
+                  style="color: #666; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;">
+                  Explore</h5>
+                <ul style="list-style: none; padding: 0;">
+                  <li style="margin-bottom: 0.8rem;"><a href="#"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Projects</a>
+                  </li>
+                  <li style="margin-bottom: 0.8rem;"><a href="#"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Press
+                      Kit</a></li>
+                  <li style="margin-bottom: 0.8rem;"><a href="#"
+                      style="color: #ccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s;">Investor
+                      Deck</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; opacity: 0.3; font-size: 0.8rem;">
+            <p>© 2026 LUXARION GAMES. ALL RIGHTS RESERVED.</p>
+            <p>DESIGNED FOR THE FUTURE</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
