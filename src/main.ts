@@ -98,16 +98,16 @@ if (aboutSection) {
     gsap.from(pillars, {
         scrollTrigger: {
             trigger: '#about .bento-pillars',
-            start: 'top 75%',
+            start: 'top 85%', // Trigger earlier when scrolling
             once: true
         },
-        x: (index) => (index % 2 === 0) ? -60 : 60, // 0 and 2 from left, 1 and 3 from right
-        y: 30,
+        x: (index) => (index % 2 === 0) ? -40 : 40, // Reduced translation for smoother look
+        y: 20,
         opacity: 0,
-        duration: 1.2,
+        duration: 1.0, // Slightly faster to feel more responsive
         stagger: 0.15,
-        ease: 'back.out(1.2)',
-        clearProps: 'all' // Crucial: clear inline styles after animation so native hovered styling works
+        ease: 'power3.out', // Smoother ease instead of back.out
+        clearProps: 'transform,opacity' // Only clear GSAP props, preserve HTML inline styles!
     });
 }
 
