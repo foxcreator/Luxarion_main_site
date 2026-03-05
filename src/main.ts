@@ -76,8 +76,48 @@ gsap.from('.hero-sub', {
 
 // 3. Section Advanced Reveals (Removed globally to prevent conflicts with specific triggers below)
 
+// 3. About Section Reveal Animation
+const aboutSection = document.querySelector('#about');
+if (aboutSection) {
+    // Text elements fade up
+    gsap.from('#about .section-tag, #about .about-heading, #about .about-desc', {
+        scrollTrigger: {
+            trigger: '#about',
+            start: 'top 75%',
+            once: true
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: 'power3.out'
+    });
+
+    // Pillars (Numbered boxes) fly in from sides
+    // 01 and 03 fly from left (x: -50)
+    // 02 and 04 fly from right (x: 50)
+    const pillars = document.querySelectorAll('#about .pillar');
+    pillars.forEach((pillar, index) => {
+        const direction = (index % 2 === 0) ? -60 : 60; // Left for even index (0, 2), Right for odd (1, 3)
+        gsap.from(pillar, {
+            scrollTrigger: {
+                trigger: '#about .bento-pillars',
+                start: 'top 80%',
+                once: true
+            },
+            x: direction,
+            y: 30, // Slightly up as well
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2, // Will add slight delay based on loop execution, but we use index mapping
+            delay: index * 0.15, // Sequential pop-in
+            ease: 'back.out(1.2)'
+        });
+    });
+}
+
 // --- SCROLL ANIMATIONS REMOVED BY USER REQUEST ---
-// Animations for Projects, Vision, About, Technology, Team, Contact and Media have been disabled.
+// Animations for Projects, Vision, Technology, Team, Contact and Media have been disabled.
 
 // 10. Logo Dynamic Hover (retained and adjusted)
 const logo = document.querySelector('.logo')
