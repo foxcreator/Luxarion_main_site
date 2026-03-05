@@ -94,7 +94,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.1) 0%, transparent 70%), url('/hero.png');
+    background-image: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.1) 0%, transparent 70%), url('../hero.png');
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -131,19 +131,19 @@ section {
 }
 
 .team-card.sevastian::before {
-    background-image: url('/sevastian.png');
+    background-image: url('../sevastian.png');
 }
 
 .team-card.mihail::before {
-    background-image: url('/mihail.png');
+    background-image: url('../mihail.png');
 }
 
 .team-card.alex::before {
-    background-image: url('/alex.png');
+    background-image: url('../alex.png');
 }
 
 .team-card.elena::before {
-    background-image: url('/elena.png');
+    background-image: url('../elena.png');
 }
 
 .team-card::after {
@@ -280,19 +280,19 @@ body::after {
 }
 
 .team-card.sevastian {
-    background-image: url('/team_founder_sevastian_1772659498382.png');
+    background-image: url('../team_founder_sevastian_1772659498382.png');
 }
 
 .team-card.mihail {
-    background-image: url('/team_designer_mihail_1772659511140.png');
+    background-image: url('../team_designer_mihail_1772659511140.png');
 }
 
 .team-card.alex {
-    background-image: url('/team_tech_lead_alex_1772659525416.png');
+    background-image: url('../team_tech_lead_alex_1772659525416.png');
 }
 
 .team-card.elena {
-    background-image: url('/team_design_lead_elena_1772659540715.png');
+    background-image: url('../team_design_lead_elena_1772659540715.png');
 }
 
 /* Footer */
