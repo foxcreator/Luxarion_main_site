@@ -186,6 +186,57 @@ if (projectSection) {
     });
 }
 
+// 6. Technology Section Reveal Animation
+const techSection = document.querySelector('#technology');
+if (techSection) {
+    // Title and Description
+    gsap.from('#technology .section-tag, #technology .lead-text', {
+        scrollTrigger: {
+            trigger: '#technology',
+            start: 'top 80%',
+            once: true
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.0,
+        stagger: 0.15,
+        ease: 'power3.out'
+    });
+
+    // Tech Items Stagger
+    const techItems = document.querySelectorAll('#tech-list .tech-item');
+    gsap.from(techItems, {
+        scrollTrigger: {
+            trigger: '#tech-list',
+            start: 'top 85%',
+            once: true
+        },
+        x: -40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out',
+        clearProps: 'transform,opacity'
+    });
+
+    // Engine Image premium reveal
+    gsap.fromTo('#technology .tech-visual',
+        { clipPath: 'inset(0% 100% 0% 0%)', filter: 'blur(10px)' }, // Reveal from left to right
+        {
+            scrollTrigger: {
+                trigger: '#technology .tech-visual',
+                start: 'top 80%',
+                once: true
+            },
+            clipPath: 'inset(0% 0% 0% 0%)',
+            filter: 'blur(0px)',
+            duration: 1.4,
+            ease: 'expo.out',
+            clearProps: 'clipPath,filter'
+        }
+    );
+}
+
 // --- SCROLL ANIMATIONS REMOVED BY USER REQUEST ---
 // Animations for Projects, Vision, Technology, Team, Contact and Media have been disabled.
 
