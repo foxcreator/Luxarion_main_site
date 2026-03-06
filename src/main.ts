@@ -30,15 +30,15 @@ gsap.ticker.lagSmoothing(0)
 
 // Mobile Menu Toggle Logic
 const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+const mainNav = document.getElementById('main-nav');
 const navItems = document.querySelectorAll('.nav-links a');
 
-if (menuToggle && navLinks) {
+if (menuToggle && mainNav) {
     menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+        mainNav.classList.toggle('active');
         // Toggle hamburger icon animation or state if needed
         const svgLines = menuToggle.querySelectorAll('line');
-        if (navLinks.classList.contains('active')) {
+        if (mainNav.classList.contains('active')) {
             // Optional: change icon to X
             svgLines[0].setAttribute('y1', '6');
             svgLines[0].setAttribute('x2', '18');
@@ -65,7 +65,7 @@ if (menuToggle && navLinks) {
 
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+            mainNav.classList.remove('active');
             // Revert to hamburger
             const svgLines = menuToggle.querySelectorAll('line');
             svgLines[0].setAttribute('y1', '12');
