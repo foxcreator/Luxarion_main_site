@@ -380,8 +380,71 @@ h4 {
     width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+
+    /* Navbar */
+    .nav-links {
+        display: none;
+        /* simple fix, can add hamburger later if requested, or just wrap */
+    }
+
+    /* Typography Scaling */
+    .hero-title {
+        font-size: clamp(3rem, 15vw, 6rem) !important;
+    }
+
+    .quote-text,
+    .vision-quote,
+    .project-title {
+        font-size: clamp(2rem, 6vw, 3rem) !important;
+    }
+
+    /* Grids stacking */
+    #projects .project-showcase,
+    #technology .tech-grid,
+    #vision .vision-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+
     .bento-pillars {
         grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Further stacking for mobile */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .footer-bottom {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        text-align: center;
+    }
+
+    /* Padding adjustments */
+    section {
+        padding: 5rem 0 !important;
+    }
+
+    .hero .container {
+        padding-top: 10vh !important;
+    }
+
+    .project-visual {
+        height: auto !important;
+        aspect-ratio: 4/3 !important;
+    }
+
+    .tech-visual {
+        height: 300px !important;
     }
 }
