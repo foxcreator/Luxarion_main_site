@@ -410,7 +410,7 @@ h4 {
         align-items: flex-start;
         padding: 0 1.5rem 2rem 1.5rem !important;
         gap: 1.5rem !important;
-        font-size: 1.2rem !important;
+        font-size: 0.8rem !important;
         position: static !important;
         background: transparent !important;
         backdrop-filter: none !important;
@@ -430,8 +430,9 @@ h4 {
 
     #main-nav.active {
         max-height: 30rem !important;
-        background: rgba(11, 11, 11, 0.98) !important;
+        background: rgba(255, 255, 255, 0.03) !important;
         backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
     }
 
     /* Typography Scaling */
