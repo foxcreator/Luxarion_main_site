@@ -425,7 +425,42 @@ h4 {
         opacity: 1;
         pointer-events: all;
         visibility: visible;
+        transition-delay: 0.1s;
+    }
+
+    .nav-links a {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    #main-nav.active .nav-links a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #main-nav.active .nav-links a:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+
+    #main-nav.active .nav-links a:nth-child(2) {
         transition-delay: 0.15s;
+    }
+
+    #main-nav.active .nav-links a:nth-child(3) {
+        transition-delay: 0.2s;
+    }
+
+    #main-nav.active .nav-links a:nth-child(4) {
+        transition-delay: 0.25s;
+    }
+
+    #main-nav.active .nav-links a:nth-child(5) {
+        transition-delay: 0.3s;
+    }
+
+    #main-nav.active .nav-links a:nth-child(6) {
+        transition-delay: 0.35s;
     }
 
     #main-nav.active {
