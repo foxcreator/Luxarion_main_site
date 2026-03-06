@@ -375,6 +375,13 @@ h4 {
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
+/* Media Gallery */
+#media-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
 /* About Section Enhanced Layout */
 .about-grid {
     display: flex;
@@ -493,6 +500,11 @@ h4 {
         grid-template-columns: 1fr;
     }
 
+    #media-gallery {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr 1fr !important;
         gap: 2rem !important;
@@ -503,6 +515,10 @@ h4 {
 
     /* Further stacking for mobile */
     .footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    #media-gallery {
         grid-template-columns: 1fr !important;
     }
 
