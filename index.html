@@ -19,7 +19,7 @@
 
     <nav class="glass"
       style="position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; height: 4.5rem; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem 0 0.5rem;">
-      <a href="#" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+      <a href="#" class="logo" style="display: flex; align-items: center; text-decoration: none; z-index: 1002;">
         <img src="./logo.png" alt="Luxarion Games" style="height: 3rem; width: auto; cursor: pointer;">
       </a>
       <div class="nav-links"
@@ -31,6 +31,14 @@
         <a href="#media">Media</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="menu-toggle" aria-label="Toggle Menu"
+        style="display: none; background: none; border: none; cursor: pointer; z-index: 1002; position: relative;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </nav>
 
     <main id="main-content">

@@ -28,6 +28,57 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0)
 
+// Mobile Menu Toggle Logic
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const navItems = document.querySelectorAll('.nav-links a');
+
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Toggle hamburger icon animation or state if needed
+        const svgLines = menuToggle.querySelectorAll('line');
+        if (navLinks.classList.contains('active')) {
+            // Optional: change icon to X
+            svgLines[0].setAttribute('y1', '6');
+            svgLines[0].setAttribute('x2', '18');
+            svgLines[0].setAttribute('y2', '18');
+
+            svgLines[1].setAttribute('opacity', '0');
+
+            svgLines[2].setAttribute('y1', '18');
+            svgLines[2].setAttribute('x2', '18');
+            svgLines[2].setAttribute('y2', '6');
+        } else {
+            // Revert to hamburger
+            svgLines[0].setAttribute('y1', '12');
+            svgLines[0].setAttribute('x2', '21');
+            svgLines[0].setAttribute('y2', '12');
+
+            svgLines[1].setAttribute('opacity', '1');
+
+            svgLines[2].setAttribute('y1', '18');
+            svgLines[2].setAttribute('x2', '21');
+            svgLines[2].setAttribute('y2', '18');
+        }
+    });
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            // Revert to hamburger
+            const svgLines = menuToggle.querySelectorAll('line');
+            svgLines[0].setAttribute('y1', '12');
+            svgLines[0].setAttribute('x2', '21');
+            svgLines[0].setAttribute('y2', '12');
+            svgLines[1].setAttribute('opacity', '1');
+            svgLines[2].setAttribute('y1', '18');
+            svgLines[2].setAttribute('x2', '21');
+            svgLines[2].setAttribute('y2', '18');
+        });
+    });
+}
+
 // --- Animations ---
 
 // 1. INTENSE HERO SCROLL PARALLAX (As requested)
