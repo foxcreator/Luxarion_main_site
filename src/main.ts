@@ -76,8 +76,169 @@ gsap.from('.hero-sub', {
 
 // 3. Section Advanced Reveals (Removed globally to prevent conflicts with specific triggers below)
 
+// 3. About Section Reveal Animation
+const aboutSection = document.querySelector('#about');
+if (aboutSection) {
+    // Text elements fade up
+    gsap.from('#about .section-tag, #about .about-heading, #about .about-desc', {
+        scrollTrigger: {
+            trigger: '#about',
+            start: 'top 75%',
+            once: true
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.15,
+        ease: 'power3.out'
+    });
+
+    // Pillars (Numbered boxes) fly in from sides
+    const pillars = document.querySelectorAll('#about .pillar');
+    gsap.from(pillars, {
+        scrollTrigger: {
+            trigger: '#about .bento-pillars',
+            start: 'top 85%', // Trigger earlier when scrolling
+            once: true
+        },
+        x: (index) => (index % 2 === 0) ? -40 : 40, // Reduced translation for smoother look
+        y: 20,
+        opacity: 0,
+        duration: 1.0, // Slightly faster to feel more responsive
+        stagger: 0.15,
+        ease: 'power3.out', // Smoother ease instead of back.out
+        clearProps: 'transform,opacity' // Only clear GSAP props, preserve HTML inline styles!
+    });
+}
+
+// 4. Vision Section Reveal Animation
+const visionSection = document.querySelector('#vision');
+if (visionSection) {
+    gsap.from('#vision .section-tag, #vision .vision-quote, #vision .vision-text', {
+        scrollTrigger: {
+            trigger: '#vision',
+            start: 'top 80%',
+            once: true
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.2, // Sequential pop-in for quote then text
+        ease: 'power3.out',
+        clearProps: 'transform,opacity'
+    });
+}
+
+// 5. FLAGSHIP PROJECT Section Animation
+const projectSection = document.querySelector('#projects');
+if (projectSection) {
+    // Animate the main section tag
+    gsap.from('#projects .section-tag', {
+        scrollTrigger: {
+            trigger: '#projects',
+            start: 'top 80%',
+            once: true
+        },
+        y: 30,
+        opacity: 0,
+        duration: 1.0,
+        ease: 'power3.out'
+    });
+
+    // Premium Reveal for the Project Image (Clip-path + Scale)
+    gsap.fromTo('#projects .project-visual',
+        { clipPath: 'inset(100% 0% 0% 0%)', scale: 1.1 },
+        {
+            scrollTrigger: {
+                trigger: '#projects .project-showcase',
+                start: 'top 75%',
+                once: true
+            },
+            clipPath: 'inset(0% 0% 0% 0%)',
+            scale: 1,
+            duration: 1.5,
+            ease: 'expo.out',
+            clearProps: 'clipPath,transform' // preserve any native layout
+        }
+    );
+
+    // Staggered reveal for right-side content
+    const projectContentElements = [
+        '#projects .project-meta',
+        '#projects .project-title',
+        '#projects .project-desc',
+        '#projects .project-features',
+        '#projects .core-pillars .tag'
+    ];
+
+    gsap.from(projectContentElements.join(', '), {
+        scrollTrigger: {
+            trigger: '#projects .project-content',
+            start: 'top 80%',
+            once: true
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.1, // Quick sequence
+        ease: 'power3.out',
+        clearProps: 'transform,opacity'
+    });
+}
+
+// 6. Technology Section Reveal Animation
+const techSection = document.querySelector('#technology');
+if (techSection) {
+    // Title and Description
+    gsap.from('#technology .section-tag, #technology .lead-text', {
+        scrollTrigger: {
+            trigger: '#technology',
+            start: 'top 80%',
+            once: true
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.0,
+        stagger: 0.15,
+        ease: 'power3.out'
+    });
+
+    // Tech Items Stagger
+    const techItems = document.querySelectorAll('#tech-list .tech-item');
+    gsap.from(techItems, {
+        scrollTrigger: {
+            trigger: '#tech-list',
+            start: 'top 85%',
+            once: true
+        },
+        x: -40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out',
+        clearProps: 'transform,opacity'
+    });
+
+    // Engine Image premium reveal
+    gsap.fromTo('#technology .tech-visual',
+        { clipPath: 'inset(0% 100% 0% 0%)', filter: 'blur(10px)' }, // Reveal from left to right
+        {
+            scrollTrigger: {
+                trigger: '#technology .tech-visual',
+                start: 'top 80%',
+                once: true
+            },
+            clipPath: 'inset(0% 0% 0% 0%)',
+            filter: 'blur(0px)',
+            duration: 1.4,
+            ease: 'expo.out',
+            clearProps: 'clipPath,filter'
+        }
+    );
+}
+
 // --- SCROLL ANIMATIONS REMOVED BY USER REQUEST ---
-// Animations for Projects, Vision, About, Technology, Team, Contact and Media have been disabled.
+// Animations for Projects, Vision, Technology, Team, Contact and Media have been disabled.
 
 // 10. Logo Dynamic Hover (retained and adjusted)
 const logo = document.querySelector('.logo')
