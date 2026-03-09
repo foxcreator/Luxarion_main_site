@@ -59,6 +59,61 @@ body {
 }
 
 /* Nav */
+nav {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1000;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.65, 0, 0.05, 1), background 0.6s ease, backdrop-filter 0.6s ease;
+    max-height: 4.5rem;
+    padding: 0;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 4.5rem;
+    padding: 0 1.5rem 0 0.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1002;
+}
+
+.logo img {
+    height: 3rem;
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    position: relative;
+    padding: 0.5rem;
+}
+
 nav a {
     text-decoration: none;
     color: white;
@@ -408,6 +463,10 @@ h4 {
     /* Navbar Mobile Menu */
     .menu-toggle {
         display: block !important;
+    }
+
+    .nav-container {
+        padding: 0 1.5rem 0 0.5rem;
     }
 
     .nav-links {
