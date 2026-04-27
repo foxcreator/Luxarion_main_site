@@ -67,9 +67,8 @@ nav {
     width: 90%;
     max-width: 1200px;
     z-index: 1000;
-    overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.65, 0, 0.05, 1), background 0.6s ease, backdrop-filter 0.6s ease;
-    max-height: 4.5rem;
+    border-radius: 20px;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
     padding: 0;
 }
 
@@ -112,6 +111,11 @@ nav {
     z-index: 1002;
     position: relative;
     padding: 0.5rem;
+}
+
+.menu-toggle svg line {
+    transition: x1 0.3s ease, y1 0.3s ease, x2 0.3s ease, y2 0.3s ease, opacity 0.25s ease;
+    transform-origin: center;
 }
 
 nav a {
@@ -460,81 +464,126 @@ h4 {
 
 @media (max-width: 991px) {
 
-    /* Navbar Mobile Menu */
-    .menu-toggle {
-        display: block !important;
-    }
-
-    .nav-container {
-        padding: 0 1.5rem 0 0.5rem;
-    }
-
-    .nav-links {
-        display: flex !important;
-        flex-direction: column;
-        width: 100%;
-        align-items: flex-start;
-        padding: 0 1.5rem 2rem 1.5rem !important;
-        gap: 1.5rem !important;
-        font-size: 0.8rem !important;
-        position: static !important;
-        background: transparent !important;
-        backdrop-filter: none !important;
-        height: auto !important;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-        visibility: hidden;
-    }
-
-    #main-nav.active .nav-links {
-        opacity: 1;
-        pointer-events: all;
-        visibility: visible;
-        transition-delay: 0.1s;
-    }
-
-    .nav-links a {
-        opacity: 0;
-        transform: translateY(-10px);
-        transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-
-    #main-nav.active .nav-links a {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    #main-nav.active .nav-links a:nth-child(1) {
-        transition-delay: 0.1s;
-    }
-
-    #main-nav.active .nav-links a:nth-child(2) {
-        transition-delay: 0.15s;
-    }
-
-    #main-nav.active .nav-links a:nth-child(3) {
-        transition-delay: 0.2s;
-    }
-
-    #main-nav.active .nav-links a:nth-child(4) {
-        transition-delay: 0.25s;
-    }
-
-    #main-nav.active .nav-links a:nth-child(5) {
-        transition-delay: 0.3s;
-    }
-
-    #main-nav.active .nav-links a:nth-child(6) {
-        transition-delay: 0.35s;
+    /* ── MOBILE NAV ────────────────────────────────────────────
+     * Layout: logo (flex-grow) | burger (auto) on first row,
+     *         nav-links drop down below on active.
+     * nav itself must NOT overflow:hidden — we control height
+     * by animating .nav-links inside, not the nav element.
+     * ─────────────────────────────────────────────────────── */
+    #main-nav {
+        /* No overflow:hidden here — it would clip the dropdown */
+        top: 1rem;
+        width: calc(100% - 2rem);
+        border-radius: 16px;
+        background: rgba(10, 10, 10, 0.65) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        transition: border-color 0.3s ease !important;
     }
 
     #main-nav.active {
-        max-height: 30rem !important;
-        background: rgba(255, 255, 255, 0.03) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
+        border-color: rgba(255, 255, 255, 0.15) !important;
     }
+
+    .nav-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        align-content: flex-start !important;
+        height: auto !important;
+        min-height: 4rem !important;
+        padding: 0.5rem 1rem 0.5rem 0.75rem !important;
+        gap: 0 !important;
+    }
+
+    .logo {
+        order: 1 !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+
+    .logo img {
+        height: 2.5rem !important;
+        width: auto !important;
+        max-width: calc(100vw - 8rem) !important;
+        object-fit: contain;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        order: 2 !important;
+        flex: 0 0 auto !important;
+        padding: 0.4rem !important;
+    }
+
+
+    .menu-toggle svg {
+        width: 26px !important;
+        height: 26px !important;
+        display: block !important;
+    }
+
+    /* Nav links: hidden by default, reveal on .active */
+    .nav-links {
+        order: 3 !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0 !important;
+        font-size: 0.85rem !important;
+        letter-spacing: 0.12em !important;
+        /* Height transition instead of max-height for smoother animation */
+        max-height: 0 !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease,
+                    padding 0.3s ease !important;
+        padding: 0 0.75rem !important;
+    }
+
+    #main-nav.active .nav-links {
+        max-height: 22rem !important;
+        opacity: 1 !important;
+        padding: 0.5rem 0.75rem 1.25rem !important;
+    }
+
+    /* Individual link styles on mobile */
+    .nav-links a {
+        display: block !important;
+        width: 100% !important;
+        padding: 0.75rem 0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        opacity: 0 !important;
+        transform: translateX(-8px) !important;
+        transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease !important;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none !important;
+    }
+
+    #main-nav.active .nav-links a {
+        opacity: 0.7 !important;
+        transform: translateX(0) !important;
+    }
+
+    #main-nav.active .nav-links a:hover {
+        opacity: 1 !important;
+        color: var(--color-accent) !important;
+    }
+
+    /* Staggered entrance for links */
+    #main-nav.active .nav-links a:nth-child(1) { transition-delay: 0.05s !important; }
+    #main-nav.active .nav-links a:nth-child(2) { transition-delay: 0.10s !important; }
+    #main-nav.active .nav-links a:nth-child(3) { transition-delay: 0.15s !important; }
+    #main-nav.active .nav-links a:nth-child(4) { transition-delay: 0.20s !important; }
+    #main-nav.active .nav-links a:nth-child(5) { transition-delay: 0.25s !important; }
 
     /* Typography Scaling */
     .hero-title {

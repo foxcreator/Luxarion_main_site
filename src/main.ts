@@ -36,27 +36,30 @@ const navItems = document.querySelectorAll('.nav-links a');
 if (menuToggle && mainNav) {
     menuToggle.addEventListener('click', () => {
         mainNav.classList.toggle('active');
-        // Toggle hamburger icon animation or state if needed
         const svgLines = menuToggle.querySelectorAll('line');
         if (mainNav.classList.contains('active')) {
-            // Optional: change icon to X
-            svgLines[0].setAttribute('y1', '6');
-            svgLines[0].setAttribute('x2', '18');
-            svgLines[0].setAttribute('y2', '18');
+            // Animate to X: top-line → diagonal ↘, bottom-line → diagonal ↗, middle hidden
+            svgLines[0].setAttribute('x1', '4');
+            svgLines[0].setAttribute('y1', '4');
+            svgLines[0].setAttribute('x2', '20');
+            svgLines[0].setAttribute('y2', '20');
 
             svgLines[1].setAttribute('opacity', '0');
 
-            svgLines[2].setAttribute('y1', '18');
-            svgLines[2].setAttribute('x2', '18');
-            svgLines[2].setAttribute('y2', '6');
+            svgLines[2].setAttribute('x1', '20');
+            svgLines[2].setAttribute('y1', '4');
+            svgLines[2].setAttribute('x2', '4');
+            svgLines[2].setAttribute('y2', '20');
         } else {
             // Revert to hamburger
-            svgLines[0].setAttribute('y1', '12');
+            svgLines[0].setAttribute('x1', '3');
+            svgLines[0].setAttribute('y1', '6');
             svgLines[0].setAttribute('x2', '21');
-            svgLines[0].setAttribute('y2', '12');
+            svgLines[0].setAttribute('y2', '6');
 
             svgLines[1].setAttribute('opacity', '1');
 
+            svgLines[2].setAttribute('x1', '3');
             svgLines[2].setAttribute('y1', '18');
             svgLines[2].setAttribute('x2', '21');
             svgLines[2].setAttribute('y2', '18');
@@ -66,12 +69,13 @@ if (menuToggle && mainNav) {
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             mainNav.classList.remove('active');
-            // Revert to hamburger
             const svgLines = menuToggle.querySelectorAll('line');
-            svgLines[0].setAttribute('y1', '12');
+            svgLines[0].setAttribute('x1', '3');
+            svgLines[0].setAttribute('y1', '6');
             svgLines[0].setAttribute('x2', '21');
-            svgLines[0].setAttribute('y2', '12');
+            svgLines[0].setAttribute('y2', '6');
             svgLines[1].setAttribute('opacity', '1');
+            svgLines[2].setAttribute('x1', '3');
             svgLines[2].setAttribute('y1', '18');
             svgLines[2].setAttribute('x2', '21');
             svgLines[2].setAttribute('y2', '18');
