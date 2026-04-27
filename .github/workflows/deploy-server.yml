@@ -1,0 +1,41 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: "server-deploy"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: [self-hosted, linux, luxarion-website]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy dist to web root
+        run: rsync -av --delete ./dist/ /var/www/luxariongames.com/
+
+      - name: Reload web server (nginx)
+        run: sudo systemctl reload nginx
+        # Якщо використовується apache: sudo systemctl reload apache2
+        # Якщо nginx не потрібен — видали цей крок
