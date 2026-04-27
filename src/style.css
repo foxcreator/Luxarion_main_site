@@ -605,3 +605,156 @@ h4 {
         height: 300px !important;
     }
 }
+
+/* Responsive overrides for inline-heavy sections */
+@media (max-width: 991px) {
+    #hero .hero-bg {
+        background-attachment: scroll !important;
+    }
+
+    #hero .container {
+        padding-top: 20vh !important;
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+
+    #hero .hero-sub {
+        font-size: 1.2rem !important;
+        max-width: 32rem !important;
+    }
+
+    #hero .hero-desc {
+        font-size: 1rem !important;
+        max-width: 32rem !important;
+    }
+
+    #hero .hero-actions {
+        flex-wrap: wrap !important;
+        gap: 0.9rem !important;
+    }
+
+    #about .container,
+    #vision .container,
+    #projects .container,
+    #technology .container,
+    #team .container,
+    #contact .container {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+
+    #about .about-heading {
+        font-size: clamp(2rem, 7vw, 3rem) !important;
+    }
+
+    #about .about-desc,
+    #vision .vision-text,
+    #technology .lead-text {
+        font-size: 1.06rem !important;
+        line-height: 1.6 !important;
+    }
+
+    #about .pillar {
+        padding: 2.2rem 1.6rem !important;
+    }
+
+    #about .pillar h4 {
+        font-size: 1.15rem !important;
+    }
+
+    #vision .vision-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.2rem !important;
+    }
+
+    #vision .vision-quote {
+        font-size: clamp(2rem, 7vw, 2.8rem) !important;
+    }
+
+    #projects .project-showcase {
+        gap: 2.4rem !important;
+    }
+
+    #projects .project-meta {
+        flex-wrap: wrap !important;
+    }
+
+    #technology #tech-list {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    #technology .tech-visual {
+        height: 340px !important;
+    }
+
+    #team h2 {
+        font-size: clamp(1.9rem, 7vw, 2.8rem) !important;
+    }
+
+    #team h3 {
+        font-size: 1.15rem !important;
+        margin-bottom: 0.7rem !important;
+    }
+
+    #team .container>div:first-of-type {
+        gap: 1rem !important;
+    }
+
+    #team .container>div:first-of-type>div {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        width: 100% !important;
+        margin: 0 !important;
+        gap: 1rem !important;
+    }
+
+    #team article {
+        min-height: 0 !important;
+        padding: 1.15rem 1rem 1.05rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero .hero-actions a {
+        width: 100% !important;
+        text-align: center;
+    }
+
+    #hero .hero-actions {
+        margin-top: 2rem !important;
+    }
+
+    #about,
+    #vision,
+    #technology,
+    #team,
+    #contact {
+        padding-top: 5.5rem !important;
+        padding-bottom: 5.5rem !important;
+    }
+
+    #projects {
+        padding-top: 5.5rem !important;
+    }
+
+    #projects .project-title {
+        font-size: clamp(2rem, 8vw, 2.8rem) !important;
+    }
+
+    #projects .project-desc {
+        font-size: 1rem !important;
+    }
+
+    #team .container>div:first-of-type>div {
+        grid-template-columns: 1fr !important;
+    }
+
+    #team p[style*="letter-spacing: 0.2em"] {
+        letter-spacing: 0.13em !important;
+        font-size: 0.8rem !important;
+    }
+
+    #contact .footer-grid {
+        gap: 2.5rem !important;
+    }
+}
