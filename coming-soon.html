@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Luxarion Games — official site coming soon." />
+  <title>Luxarion Games | Coming Soon</title>
+  <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #0b0b0b;
+      --color-text: #ffffff;
+      --color-accent: #00e5ff;
+      --color-secondary: #8a5cff;
+      --font-main: "Inter", system-ui, -apple-system, sans-serif;
+      --font-display: "Space Grotesk", var(--font-main);
+      --gradient-1: linear-gradient(135deg, #00e5ff 0%, #8a5cff 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-main);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      background: url("https://grainy-gradients.vercel.app/noise.svg");
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 229, 255, 0.18), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 50%, rgba(138, 92, 255, 0.12), transparent 50%),
+        radial-gradient(ellipse 50% 35% at 0% 80%, rgba(0, 229, 255, 0.08), transparent 45%),
+        var(--color-bg);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1.5rem, 5vw, 3rem);
+    }
+
+    .card {
+      width: min(100%, 520px);
+      text-align: center;
+      padding: clamp(2rem, 6vw, 3rem) clamp(1.75rem, 5vw, 2.75rem);
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 20px;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo img {
+      height: clamp(2.5rem, 8vw, 3.25rem);
+      width: auto;
+      object-fit: contain;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #a0a0a0;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.25rem, 8vw, 3.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.35rem;
+    }
+
+    .gradient {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .soon {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(0.95rem, 3vw, 1.1rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .soon span {
+      color: var(--color-accent);
+    }
+
+    .lead {
+      margin-top: 1.25rem;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.55);
+      max-width: 36ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .footer-note a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-note a:hover {
+      color: var(--color-accent);
+    }
+
+    .pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.7);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.45;
+        transform: scale(0.85);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="wrap">
+    <main class="card" role="main">
+      <div class="logo">
+        <img src="./Logo-v2.png" alt="Luxarion Games" width="280" height="80" />
+      </div>
+      <p class="tag">// studio</p>
+      <h1>Luxarion <span class="gradient">Games</span></h1>
+      <p class="soon">Coming <span>soon</span></p>
+      <div class="pulse" aria-hidden="true"><span class="pulse-dot"></span></div>
+      <p class="lead">
+        We are preparing the full experience. Beyond imagination — stay tuned.
+      </p>
+      <p class="footer-note">
+        <a href="mailto:info@luxariongames.com">info@luxariongames.com</a>
+        ·
+        <a href="https://x.com/luxariongames" target="_blank" rel="noopener noreferrer">@luxariongames</a>
+      </p>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -335,41 +335,7 @@ techItems.forEach(item => {
     });
 });
 
-// 12. Media Lightbox Gallery
-const galleryItems = document.querySelectorAll('.media-gallery-item');
-const lightboxModal = document.getElementById('lightbox-modal');
-const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
-
-if (lightboxModal && lightboxImg) {
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const img = item.querySelector('img');
-            if (img) {
-                lightboxImg.src = img.src;
-                lightboxModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // prevent scrolling
-
-                // GSAP pop animation
-                gsap.fromTo(lightboxImg,
-                    { scale: 0.95, opacity: 0 },
-                    { scale: 1, opacity: 1, duration: 0.3, ease: 'power2.out' }
-                );
-            }
-        });
-    });
-
-    lightboxModal.addEventListener('click', () => {
-        gsap.to(lightboxImg, {
-            scale: 0.95, opacity: 0, duration: 0.2, ease: 'power2.in',
-            onComplete: () => {
-                lightboxModal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // allow scrolling
-            }
-        });
-    });
-}
-
-// 13. Re-calculate ScrollTriggers after all heavy images load
+// 12. Re-calculate ScrollTriggers after all heavy images load
 window.addEventListener('load', () => {
     ScrollTrigger.refresh();
 });
