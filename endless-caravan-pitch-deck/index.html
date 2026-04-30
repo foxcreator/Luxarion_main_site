@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicon.png?v=1" />
+  <title>Pitch Deck — Luxarion Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@500;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0b0b0b;
+      --accent: #00E5FF;
+      --secondary: #8A5CFF;
+      --glass-bg: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --header-h: 68px;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      max-width: 100vw;
+      background: var(--bg);
+      color: #fff;
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* ─── Ambient glow ─── */
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .ambient::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 70%);
+      top: -200px; left: -150px;
+      animation: drift1 18s ease-in-out infinite alternate;
+    }
+    .ambient::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(138,92,255,0.06) 0%, transparent 70%);
+      bottom: -200px; right: -100px;
+      animation: drift2 22s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(60px,40px) scale(1.1); } }
+    @keyframes drift2 { from { transform: translate(0,0) scale(1); } to { transform: translate(-50px,-30px) scale(1.08); } }
+
+    /* ─── Header ─── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      z-index: 100;
+      background: rgba(11,11,11,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 1.5rem;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .header-logo img { height: 32px; width: auto; }
+
+    .header-divider {
+      width: 1px; height: 28px;
+      background: var(--glass-border);
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      flex: 1;
+      min-width: 0;
+    }
+    .header-title h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background: linear-gradient(90deg, #fff 60%, rgba(255,255,255,0.45));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-title span {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.35);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      margin-top: 1px;
+      -webkit-text-fill-color: rgba(255,255,255,0.35);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-ghost {
+      color: rgba(255,255,255,0.6);
+      border-color: var(--glass-border);
+      background: transparent;
+    }
+    .btn-ghost:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+    }
+    .btn-accent {
+      color: #000;
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
+    }
+    .btn-accent:hover {
+      filter: brightness(1.12) saturate(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0,229,255,0.25);
+    }
+
+    /* ─── Loading screen ─── */
+    #loader {
+      position: fixed;
+      inset: 0;
+      top: var(--header-h);
+      z-index: 50;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0,229,255,0.12), rgba(138,92,255,0.12));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,229,255,0); }
+      50% { box-shadow: 0 0 0 12px rgba(0,229,255,0.06); }
+    }
+
+    .loader-text p {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    .progress-track {
+      width: 240px;
+      height: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 40%;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      border-radius: 2px;
+      animation: shimmer 1.6s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(350%); }
+    }
+
+    /* ─── PDF iframe viewer ─── */
+    #viewer {
+      position: fixed;
+      top: var(--header-h);
+      left: 0; right: 0; bottom: 0;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      overflow: hidden;
+    }
+    #viewer.visible { opacity: 1; }
+
+    .pdf-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ─── Mobile fallback ─── */
+    .mobile-fallback {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 2rem;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    .fallback-icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, rgba(0,229,255,0.15), rgba(138,92,255,0.15));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mobile-fallback h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+    .mobile-fallback p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 300px;
+    }
+
+    @media (max-width: 768px) {
+      html, body { overflow: auto; }
+      header { padding: 0 1.25rem; gap: 1rem; }
+      .header-title span { display: none; }
+      .btn-ghost.back-btn span { display: none; }
+      #loader, #viewer { display: none !important; }
+      .mobile-fallback { display: flex; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient"></div>
+
+  <header>
+    <a href="/" class="header-logo" title="Back to Luxarion Games">
+      <img src="/Logo-v2.png" alt="Luxarion Games" />
+    </a>
+    <div class="header-divider"></div>
+    <div class="header-title">
+      <h1>Endless Caravan</h1>
+      <span>Investor Pitch Deck · Luxarion Games</span>
+    </div>
+    <div class="header-actions">
+      <a href="/" class="btn btn-ghost back-btn" title="Return to home">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        <span>Home</span>
+      </a>
+      <a href="/Endless Caravan Pitch Deck.pdf" download class="btn btn-accent">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download
+      </a>
+    </div>
+  </header>
+
+  <!-- Loading screen -->
+  <div id="loader">
+    <div class="loader-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#lg)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00E5FF"/>
+            <stop offset="100%" stop-color="#8A5CFF"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+      </svg>
+    </div>
+    <div class="loader-text">
+      <p>Loading pitch deck</p>
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF iframe viewer -->
+  <div id="viewer">
+    <iframe id="pdf-frame" class="pdf-frame" title="Endless Caravan Pitch Deck"></iframe>
+  </div>
+
+  <!-- Mobile fallback -->
+  <div class="mobile-fallback">
+    <div class="fallback-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#g2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <defs>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00E5FF"/>
+            <stop offset="100%" stop-color="#8A5CFF"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+      </svg>
+    </div>
+    <h2>Endless Caravan Pitch Deck</h2>
+    <p>Tap below to open or download the full pitch deck PDF.</p>
+    <a href="/Endless Caravan Pitch Deck.pdf" target="_blank" class="btn btn-accent" style="padding:.75rem 1.75rem;font-size:.85rem;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Open PDF
+    </a>
+    <a href="/" class="btn btn-ghost" style="padding:.75rem 1.75rem;font-size:.85rem;">Return to Home</a>
+  </div>
+
+  <script>
+    var loader = document.getElementById('loader');
+    var viewer = document.getElementById('viewer');
+    var frame  = document.getElementById('pdf-frame');
+
+    fetch('/Endless Caravan Pitch Deck.pdf')
+      .then(function(r) { return r.blob(); })
+      .then(function(blob) {
+        var url = URL.createObjectURL(blob);
+        frame.onload = function() {
+          viewer.classList.add('visible');
+          loader.classList.add('hidden');
+        };
+        frame.src = url + '#toolbar=0&navpanes=0&view=FitH';
+      })
+      .catch(function(err) {
+        console.error(err);
+        var p = loader.querySelector('.loader-text p');
+        if (p) p.textContent = 'Failed to load PDF';
+      });
+  </script>
+</body>
+
+</html>

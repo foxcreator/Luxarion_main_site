@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
 
 export default defineConfig({
     base: '/',
@@ -9,8 +8,13 @@ export default defineConfig({
             name: 'mpa-clean-urls',
             configureServer(server) {
                 server.middlewares.use((req, _res, next) => {
-                    if (req.url === '/endless-caravan-pitch-deck') {
-                        req.url = '/pitch-deck/index.html';
+                    const request = req as { url?: string };
+
+                    if (request.url === '/pitch-deck') {
+                        request.url = '/pitch-deck/index.html';
+                    }
+                    if (request.url === '/endless-caravan-pitch-deck') {
+                        request.url = '/endless-caravan-pitch-deck/index.html';
                     }
                     next();
                 });
@@ -20,8 +24,9 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
-                pitchDeck: resolve(__dirname, 'pitch-deck/index.html'),
+                main: new URL('./index.html', import.meta.url).pathname,
+                pitchDeck: new URL('./pitch-deck/index.html', import.meta.url).pathname,
+                endlessCaravanPitchDeck: new URL('./endless-caravan-pitch-deck/index.html', import.meta.url).pathname,
             },
         },
     },
